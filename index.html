@@ -1,12 +1,12 @@
 
 <!DOCTYPE html>
-<html>
+<html onload='document.addEventListener("dblclick", function(e){ e.preventDefault();}, { passive: false });'>
   <head>
     <title>タイマーアプリ</title>
     <meta charset="utf-8" />
    <link href="style.css" rel="stylesheet">
   </head>
-  <body>
+  <body> 
     <div class="menu-icon">&#9776;</div>
       <div id="fps">24fps</div>
     <div id="time">00:00</div>
@@ -20,6 +20,5 @@
 
     <button id="reset">Reset</button>
   </body>
-
     <script src="script.js"></script>
 </html>
