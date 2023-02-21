@@ -1,5 +1,5 @@
-html {
-  touch-action: manipulation;
+html, css{
+  touch-action:none;
 }
 body {
   margin: 0;

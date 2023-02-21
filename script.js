@@ -4,6 +4,7 @@ let running = false;
 let fps = 24;
 let interval;
 
+
 function updateTime() {
   time++;
   const seconds = Math.floor(time / fps);
