@@ -25,7 +25,7 @@ function startTimer() {
 
 
 document.addEventListener("click", function (event) {
-  if (event.target.id !== "reset" && event.target.className !== "menu-icon" && event.target.className != "menu_item") {
+  if (event.target.id !== "reset" && event.target.className !== "menu-icon" && event.target.className !== "menu_item") {
     startTimer();
   }
 });
@@ -38,6 +38,7 @@ function resetTimer() {
 }
 
 document.getElementById("reset").addEventListener("click", resetTimer);
+
 
 const menuIcon = document.querySelector(".menu-icon");
 const menu = document.querySelector(".menu");
