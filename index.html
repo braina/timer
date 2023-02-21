@@ -4,21 +4,25 @@
   <head>
     <title>タイマーアプリ</title>
     <meta charset="utf-8" />
-   <link href="style.css" rel="stylesheet">
+	<!-- iOS用 -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- Android用 -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<link href="style.css" rel="stylesheet">
   </head>
   <body> 
-    <div class="menu-icon">&#9776;</div>
-      <div id="fps">24fps</div>
-    <div id="time">00:00</div>
+	  <div class="menu-icon">&#9776;</div>
+	  <div id="fps">24fps</div>
+	  <div id="time">00:00</div>
 
-    <div class="menu">
-      <a class="menu_item" data-fps="24">24fps</a>
-      <a class="menu_item" data-fps="30">30fps</a>
-      <a class="menu_item" data-fps="60">60fps</a>
-    </div>
+	  <div class="menu">
+		  <a class="menu_item" data-fps="24">24fps</a>
+		  <a class="menu_item" data-fps="30">30fps</a>
+		  <a class="menu_item" data-fps="60">60fps</a>
+	  </div>
 
 
-    <button id="reset">Reset</button>
+	  <button id="reset">Reset</button>
   </body>
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </html>
