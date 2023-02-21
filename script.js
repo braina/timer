@@ -1,4 +1,3 @@
-
 let time = 0;
 let running = false;
 let fps = 24;
@@ -31,7 +30,7 @@ document.addEventListener("click", function (event) {
   if (
     event.target.id !== "reset" &&
     event.target.className !== "menu-icon" &&
-    event.target.className != "menu_item"
+    event.target.className !== "menu_item"
   ) {
     startTimer();
   }
@@ -64,12 +63,8 @@ menuLinks.forEach(function (link) {
   });
 });
 
-
-
-
-
-//長押しでタイマーリセット
 const longPress = {
+  //プロパティ
   el: "",
   count: 0,
   second: 1,
@@ -78,19 +73,17 @@ const longPress = {
 
   //メソッド
   init: function (param) {
-    //引数のパラメータ取得
-    this.el = document.querySelector(param.el);
+      this.el = document.querySelector(param.el);
     this.second = param.second;
-    //イベントリスナー
-    this.el.addEventListener(
-      "mousedown",
+     this.el.addEventListener(
+      "touchstart",
       () => {
         this.start();
       },
       false
     );
     this.el.addEventListener(
-      "mouseup",
+      "touchend",
       () => {
         this.end();
       },
@@ -126,3 +119,4 @@ longPress.init({
   el: "body", //長押しの判定を取りたい要素のセレクタを指定する
   second: 0.6 //長押しの秒数を指定する
 });
+
