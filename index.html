@@ -194,18 +194,6 @@ canvas {
 				}
 			}
 
-			function touchStarted() {
-				for (let i = 0; i < touches.length; i++) {
-					let touch = touches[i];
-					if (touch.target.className !== "Btn") {
-						running = !running;
-					}
-					if (!running) {
-						angle = round(angle / (TWO_PI / 144)) * (TWO_PI / 144);
-					}
-				}
-			}
-
 			function addTime() {
 				sum += second*24+count%24;
 				let paddedMinute = (floor(second / 60)).toString().padStart(2, '0');
@@ -226,7 +214,6 @@ canvas {
 				times=[];
 			}
 
-			function touchEnded() {}
 		</script>
 	</body>
 
