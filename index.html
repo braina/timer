@@ -21,7 +21,6 @@ body {
 canvas {
 	display: block;
 	margin: 0 auto;
-	border: 2px solid #000;
 }
 #resetBtn,#addBtn {
 	background-color: #fff;
@@ -62,7 +61,9 @@ canvas {
 			let sum =0;
 
 			function setup() {
-				createCanvas(windowWidth, windowHeight);
+				//createCanvas(windowWidth, windowHeight);
+		        createCanvas(windowWidth*.7, windowHeight*.7);
+
 				cx = width / 2;
 				cy = height / 2;
 				r = min(width, height) * 0.42;
@@ -72,18 +73,18 @@ canvas {
 				resetButton.id('resetBtn');
 				resetButton.class('Btn');
 
-				resetButton.position(cx - resetButton.width / 2.4, 0.95 * height);
+				resetButton.position(cx+width/7, 0.95 * height);
 				resetButton.mousePressed(reset);
 				// create add time button
 				let addButton = createButton('M+');
 				addButton.id('addBtn');
 				addButton.class('Btn');
-				addButton.position(cx - addButton.width / 3, cy+80);
+				addButton.position(cx +width/7 + addButton.width/2.5, cy+80);
 				addButton.mousePressed(addTime);
 				let cButton = createButton('M-');
 				cButton.id('clearBtn');
 				cButton.class('Btn');      
-				cButton.position(width*.3, 5 + cButton.height);
+				cButton.position(width*.5, 5 + cButton.height);
 				cButton.mousePressed(removeTime);
 				let clearButton = createButton('MC');
 				clearButton.id('clearBtn');
