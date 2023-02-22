@@ -184,15 +184,18 @@ canvas {
 				count = 0;
 				second = 0;
 			}
-
-			function mousePressed(e) {
-				if (e.target.className !== "Btn" ) {
-					running = !running;
-				}
-				if (!running) {
-					angle = round(angle / (TWO_PI / 144)) * (TWO_PI / 144);
+			function touchStarted() {
+				for (let i = 0; i < touches.length; i++) {
+					let touch = touches[i];
+					if (touch.target.className !== "Btn") {
+						running = !running;
+					}
+					if (!running) {
+						angle = round(angle / (TWO_PI / 144)) * (TWO_PI / 144);
+					}
 				}
 			}
+
 
 			function addTime() {
 				sum += second*24+count%24;
