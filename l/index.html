@@ -148,7 +148,7 @@ canvas {
 				stroke(0);
 				line(width * .02, margin/2 + (times.length) * margin, width * .28,margin/2 + (times.length) * margin);
 				let paddedMinute = ( floor(sum/(24*60))).toString().padStart(2, '0');
-				let paddedSecond = (floor(sum/24)).toString().padStart(2, '0');
+				let paddedSecond = ( floor(sum/24)%60 ).toString().padStart(2, '0');
 				let paddedCount = (sum%24).toString().padStart(2, '0');
 				let timeString = paddedMinute + ":" + paddedSecond + "+" + paddedCount;
 				fill(0);
