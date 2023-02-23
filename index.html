@@ -10,7 +10,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.min.js"></script>
 		<style>
 html, css{
-  touch-action:none;
+	touch-action:none;
 }
 
 
@@ -62,7 +62,7 @@ canvas {
 
 			function setup() {
 				//createCanvas(windowWidth, windowHeight);
-		        createCanvas(windowWidth*.7, windowHeight*.7);
+				createCanvas(windowWidth*.7, windowHeight*.7);
 
 				cx = width / 2;
 				cy = height / 2;
@@ -72,15 +72,26 @@ canvas {
 				let resetButton = createButton('Reset');
 				resetButton.id('resetBtn');
 				resetButton.class('Btn');
-
 				resetButton.position(cx+width/7, 0.95 * height);
+				resetButton.center('horizontal');
 				resetButton.mousePressed(reset);
 				// create add time button
 				let addButton = createButton('M+');
 				addButton.id('addBtn');
 				addButton.class('Btn');
-				addButton.position(cx +width/7 + addButton.width/2.5, cy+80);
+				addButton.position(cx+width/7, cy+80);
+				addButton.center('horizontal');
 				addButton.mousePressed(addTime);
+
+				//let addResetButton = createButton('M+R');
+				//addResetButton.id('addresetBtn');
+				//addResetButton.class('Btn');
+				//addResetButton.position(cx +width/7 , cy+80);
+				//addResetButton.mousePressed(addTimeReset);
+
+
+
+
 				let cButton = createButton('M-');
 				cButton.id('clearBtn');
 				cButton.class('Btn');      
@@ -193,8 +204,9 @@ canvas {
 
 
 			function mousePressed(e) {
-				if (e.target.className !== "Btn" ) {
-					running = !running;
+				if (e.target.className !== "Btn") {
+					if(e.target.id == "addresetBtn") return;
+					else running = !running;
 				}
 				if (!running) {
 					angle = round(angle / (TWO_PI / 144)) * (TWO_PI / 144);
@@ -204,7 +216,7 @@ canvas {
 
 
 			function touchStarted() {
-				if(running && touches.length >= 2) addTime();
+				if(running && touches.length >= 2) addResetTime();
 
 				for (let i = 0; i < touches.length; i++) {
 					let touch = touches[i];
@@ -226,6 +238,13 @@ canvas {
 				let timeString = paddedMinute + ":" + paddedSecond + "+" + paddedCount;
 				times.push(timeString);
 			}
+			function addTimeReset() {
+				addTime();
+				reset();
+				running = true;
+			}
+
+
 			function removeTime(){
 				var m =parseInt(times[times.length-1].split(":")[0])*60*24;
 				var s =parseInt(times[times.length-1].split(":")[1])*24;
